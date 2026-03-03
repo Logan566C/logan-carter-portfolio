@@ -69,16 +69,16 @@ const Hero = () => {
                 <div className="h-px w-14 bg-cu-gold" />
               </motion.div>
 
-              {/* Ghost last name — increased opacity so it reads clearly */}
+              {/* Last name — same size as LOGAN */}
               <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4 }}
+                initial={{ opacity: 0, x: -60 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.9, delay: 0.4 }}
                 className="overflow-hidden -mt-4 mb-6"
               >
-                <span className="text-[5rem] sm:text-[8rem] lg:text-[10rem] font-black leading-none tracking-tighter text-white/[0.18] uppercase select-none">
+                <h1 className="text-[7rem] sm:text-[10rem] lg:text-[13rem] font-black leading-none tracking-tighter text-cu-gold uppercase">
                   CARTER
-                </span>
+                </h1>
               </motion.div>
 
               {/* Info line */}
