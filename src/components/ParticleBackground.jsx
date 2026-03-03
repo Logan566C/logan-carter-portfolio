@@ -15,7 +15,7 @@ const annotations = [
 ]
 
 // Simple gear SVG (toothed circle)
-const GearIcon = ({ r = 48, teeth = 12, color = '#0ea5e9', opacity = 0.06, speed = 22, reverse = false }) => {
+const GearIcon = ({ r = 48, teeth = 12, color = '#CFB87C', opacity = 0.06, speed = 22, reverse = false }) => {
   const toothW = (2 * Math.PI * r) / (teeth * 2.4)
   const paths = []
   for (let i = 0; i < teeth; i++) {
@@ -68,7 +68,7 @@ const ParticleBackground = () => (
     {annotations.map((a, i) => (
       <motion.span
         key={i}
-        className="absolute font-mono text-[9px] text-blueprint-500/10 whitespace-nowrap select-none"
+        className="absolute font-mono text-[9px] text-white/10 whitespace-nowrap select-none"
         style={{ left: a.x, top: a.y }}
         initial={{ opacity: 0 }}
         animate={{ opacity: [0, 0.5, 0.5, 0] }}
@@ -87,10 +87,10 @@ const ParticleBackground = () => (
     {/* Origin crosshair — bottom left */}
     <div className="absolute bottom-6 left-6 opacity-[0.07]">
       <svg width="44" height="44" viewBox="0 0 44 44">
-        <line x1="22" y1="0"  x2="22" y2="44" stroke="#0ea5e9" strokeWidth="0.6" />
-        <line x1="0"  y1="22" x2="44" y2="22" stroke="#0ea5e9" strokeWidth="0.6" />
-        <circle cx="22" cy="22" r="2.5" fill="#0ea5e9" />
-        <circle cx="22" cy="22" r="8"   fill="none" stroke="#0ea5e9" strokeWidth="0.4" />
+        <line x1="22" y1="0"  x2="22" y2="44" stroke="#CFB87C" strokeWidth="0.6" />
+        <line x1="0"  y1="22" x2="44" y2="22" stroke="#CFB87C" strokeWidth="0.6" />
+        <circle cx="22" cy="22" r="2.5" fill="#CFB87C" />
+        <circle cx="22" cy="22" r="8"   fill="none" stroke="#CFB87C" strokeWidth="0.4" />
       </svg>
     </div>
 
@@ -105,7 +105,7 @@ const ParticleBackground = () => (
 
     {/* Rotating gear — bottom right */}
     <div className="absolute bottom-8 right-10 opacity-100">
-      <GearIcon r={52} teeth={14} color="#0ea5e9" opacity={0.055} speed={28} />
+      <GearIcon r={52} teeth={14} color="#CFB87C" opacity={0.055} speed={28} />
     </div>
 
     {/* Rotating gear — top left (amber, smaller, counter-clockwise) */}
