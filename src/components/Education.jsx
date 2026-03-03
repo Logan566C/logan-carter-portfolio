@@ -78,7 +78,7 @@ const Education = () => {
                 <div className="flex flex-wrap items-start justify-between gap-2 mb-4">
                   <div>
                     <h3 className="text-lg font-semibold text-white">{edu.degree}</h3>
-                    <p className="text-primary-400 font-medium">{edu.school}</p>
+                    <p className="text-cu-gold font-medium">{edu.school}</p>
                   </div>
                   {edu.current && (
                     <span className="px-3 py-1 text-xs font-medium bg-green-500/20 text-green-400 rounded-full border border-green-500/30">
@@ -100,11 +100,11 @@ const Education = () => {
 
                 <div className="space-y-2">
                   <p className="text-dark-300 text-sm flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-primary-500 rounded-full shrink-0" />
+                    <span className="w-1.5 h-1.5 bg-cu-gold rounded-full shrink-0" />
                     {edu.honors}
                   </p>
                   <p className="text-dark-300 text-sm flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-primary-500 rounded-full shrink-0" />
+                    <span className="w-1.5 h-1.5 bg-cu-gold rounded-full shrink-0" />
                     Minors: {edu.minors}
                   </p>
                 </div>
@@ -121,8 +121,8 @@ const Education = () => {
                   transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
                   className="glass rounded-xl p-5 card-hover"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-primary-500/10 flex items-center justify-center mb-3">
-                    <item.icon className="text-primary-400" size={20} />
+                  <div className="w-10 h-10 rounded-lg bg-cu-gold/10 flex items-center justify-center mb-3">
+                    <item.icon className="text-cu-gold" size={20} />
                   </div>
                   <h4 className="text-white font-semibold text-sm">{item.title}</h4>
                   <p className="text-dark-400 text-xs mt-1">{item.detail}</p>
@@ -131,29 +131,54 @@ const Education = () => {
             </div>
           </div>
 
-          {/* Clubs sidebar */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="glass rounded-xl p-6 h-fit"
-          >
-            <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-              <span className="w-2 h-2 bg-orange-500 rounded-full" />
-              Clubs & Activities
-            </h3>
-            <div className="space-y-3">
-              {clubs.map((club) => (
-                <div
-                  key={club.name}
-                  className="p-3 rounded-lg bg-dark-800/50 border border-dark-700/50"
-                >
-                  <p className="text-dark-300 font-medium text-sm">{club.name}</p>
-                  <p className="text-xs text-dark-500 mt-1">{club.status}</p>
+          {/* Sidebar: CU photo + clubs */}
+          <div className="space-y-6">
+            {/* CU Boulder campus photo */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.25 }}
+              className="relative overflow-hidden rounded-xl"
+            >
+              <img
+                src="/images/cu-boulder.jpg"
+                alt="University of Colorado Boulder"
+                className="w-full h-40 object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4">
+                <div>
+                  <p className="font-mono text-[9px] text-cu-gold tracking-[0.25em] uppercase">University of Colorado</p>
+                  <p className="font-mono text-[8px] text-white/50 mt-0.5">Boulder, CO · Est. 1876</p>
                 </div>
-              ))}
-            </div>
-          </motion.div>
+              </div>
+              <div className="absolute top-2 left-2 w-5 h-5 border-l border-t border-cu-gold/60" />
+              <div className="absolute top-2 right-2 w-5 h-5 border-r border-t border-cu-gold/60" />
+            </motion.div>
+
+            {/* Clubs */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="glass rounded-xl p-6 h-fit"
+            >
+              <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+                <span className="w-2 h-2 bg-cu-gold rounded-full" />
+                Clubs & Activities
+              </h3>
+              <div className="space-y-3">
+                {clubs.map((club) => (
+                  <div
+                    key={club.name}
+                    className="p-3 rounded-lg bg-dark-800/50 border border-dark-700/50"
+                  >
+                    <p className="text-dark-300 font-medium text-sm">{club.name}</p>
+                    <p className="text-xs text-dark-500 mt-1">{club.status}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>
