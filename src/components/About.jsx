@@ -22,7 +22,7 @@ const highlights = [
     title:  'B.S. Mechanical Engineering',
     sub:    'University of Colorado Boulder',
     detail: 'Minors: Mathematics & Aerospace',
-    color:  '#0ea5e9',
+    color:  '#CFB87C',
   },
   {
     icon: Award,
@@ -47,6 +47,12 @@ const highlights = [
   },
 ]
 
+const lifePhotos = [
+  { src: '/images/ski-group.jpg',    label: 'Summit Run · CO' },
+  { src: '/images/golf-course.jpg',  label: 'On the Course' },
+  { src: '/images/rocky-mountain.jpg', label: 'Rocky Mountain NP' },
+]
+
 const About = () => {
   const ref      = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
@@ -64,13 +70,13 @@ const About = () => {
           className="flex items-center gap-4 mb-12"
         >
           <div className="relative">
-            <div className="absolute -top-1 -left-1 w-3 h-3 border-l border-t border-blueprint-500/60" />
-            <div className="absolute -bottom-1 -left-1 w-3 h-3 border-l border-b border-blueprint-500/60" />
-            <span className="font-mono text-[10px] text-blueprint-400/60 tracking-[0.35em] uppercase px-3">
+            <div className="absolute -top-1 -left-1 w-3 h-3 border-l border-t border-cu-gold/60" />
+            <div className="absolute -bottom-1 -left-1 w-3 h-3 border-l border-b border-cu-gold/60" />
+            <span className="font-mono text-[10px] text-cu-gold/60 tracking-[0.35em] uppercase px-3">
               Section A-A
             </span>
           </div>
-          <div className="h-[1px] flex-1 bg-gradient-to-r from-blueprint-500/30 to-transparent" />
+          <div className="h-[1px] flex-1 bg-gradient-to-r from-cu-gold/30 to-transparent" />
           <span className="font-mono text-[9px] text-dark-700 tracking-widest hidden sm:block">
             DWG: LC-ABOUT-001
           </span>
@@ -118,21 +124,21 @@ const About = () => {
             {[
               <>
                 I'm a{' '}
-                <span className="text-blueprint-300 font-medium">Mechanical Engineering student</span>{' '}
+                <span className="text-cu-gold-light font-medium">Mechanical Engineering student</span>{' '}
                 at the University of Colorado Boulder with minors in Mathematics and Aerospace Engineering.
                 My engineering journey is fueled by a deep curiosity for how things work and a drive to
                 design innovative solutions.
               </>,
               <>
                 Before transferring to CU Boulder, I completed coursework at{' '}
-                <span className="text-blueprint-300 font-medium">UMass Lowell</span>{' '}
+                <span className="text-cu-gold-light font-medium">UMass Lowell</span>{' '}
                 where I made Dean's List and was part of the Honors College. I was also accepted into the{' '}
-                <span className="text-blueprint-300 font-medium">United States Naval Academy</span>{' '}
+                <span className="text-cu-gold-light font-medium">United States Naval Academy</span>{' '}
                 Class of 2028, demonstrating my commitment to discipline and service.
               </>,
               <>
                 I bring a unique combination of{' '}
-                <span className="text-blueprint-300 font-medium">technical expertise and leadership</span>{' '}
+                <span className="text-cu-gold-light font-medium">technical expertise and leadership</span>{' '}
                 to every project. Whether executing multi-phase design projects, leading construction
                 initiatives, or building client websites — I thrive on challenges that push me to grow.
               </>,
@@ -142,7 +148,7 @@ const About = () => {
                 initial={{ opacity: 0, y: 12 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.35 + i * 0.12 }}
-                className="text-dark-300 leading-relaxed text-base border-l-2 border-blueprint-500/20 pl-4"
+                className="text-dark-300 leading-relaxed text-base border-l-2 border-cu-gold/20 pl-4"
               >
                 {para}
               </motion.p>
@@ -181,6 +187,33 @@ const About = () => {
           </motion.div>
 
         </div>
+
+        {/* ── Life outside engineering ─────────────────────────── */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.7 }}
+          className="mt-16 pt-10 border-t border-dark-800/60"
+        >
+          <p className="font-mono text-[9px] text-dark-600 tracking-[0.3em] uppercase mb-6">
+            Beyond the Blueprint
+          </p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            {lifePhotos.map((photo) => (
+              <div key={photo.src} className="relative group overflow-hidden rounded-lg aspect-video">
+                <img
+                  src={photo.src}
+                  alt={photo.label}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
+                  <span className="font-mono text-[9px] text-white/80 tracking-wider">{photo.label}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
       </div>
     </section>
   )
