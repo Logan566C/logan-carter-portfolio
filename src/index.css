@@ -11,12 +11,12 @@
 
   body {
     @apply bg-dark-950 text-dark-100 font-sans antialiased;
-    /* Silver/white grid — CU Boulder colors (Gold, Silver, Black) */
+    /* CU Silver grid — #A2A4A3 */
     background-image:
-      linear-gradient(rgba(220, 220, 220, 0.045) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(220, 220, 220, 0.045) 1px, transparent 1px),
-      linear-gradient(rgba(220, 220, 220, 0.018) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(220, 220, 220, 0.018) 1px, transparent 1px);
+      linear-gradient(rgba(162, 164, 163, 0.09) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(162, 164, 163, 0.09) 1px, transparent 1px),
+      linear-gradient(rgba(162, 164, 163, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(162, 164, 163, 0.035) 1px, transparent 1px);
     background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
     background-position: -1px -1px;
     /* ── Saved alternatives ──────────────────────────────────
