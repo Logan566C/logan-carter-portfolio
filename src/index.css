@@ -12,10 +12,10 @@
   body {
     @apply bg-dark-950 text-dark-100 font-sans antialiased;
     background-image:
-      linear-gradient(rgba(14, 165, 233, 0.045) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(14, 165, 233, 0.045) 1px, transparent 1px),
-      linear-gradient(rgba(14, 165, 233, 0.018) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(14, 165, 233, 0.018) 1px, transparent 1px);
+      linear-gradient(rgba(207, 184, 124, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(207, 184, 124, 0.04) 1px, transparent 1px),
+      linear-gradient(rgba(207, 184, 124, 0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(207, 184, 124, 0.015) 1px, transparent 1px);
     background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
     background-position: -1px -1px;
   }
@@ -26,22 +26,22 @@
   }
 
   ::selection {
-    @apply bg-blueprint-500/30 text-white;
+    @apply bg-cu-gold/30 text-white;
   }
 
   ::-webkit-scrollbar       { width: 6px; }
   ::-webkit-scrollbar-track { @apply bg-dark-900; }
   ::-webkit-scrollbar-thumb { @apply bg-dark-700 rounded-full; }
-  ::-webkit-scrollbar-thumb:hover { @apply bg-blueprint-700; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-cu-gold-dark; }
 }
 
 @layer components {
   .gradient-text {
-    @apply bg-gradient-to-r from-primary-400 via-primary-500 to-orange-400 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-cu-gold via-cu-gold-light to-cu-gold-dark bg-clip-text text-transparent;
   }
 
   .blueprint-text {
-    @apply bg-gradient-to-r from-blueprint-400 to-blueprint-300 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-cu-gold to-cu-gold-light bg-clip-text text-transparent;
   }
 
   .glass {
@@ -49,28 +49,28 @@
   }
 
   .glass-blueprint {
-    @apply bg-dark-900/60 backdrop-blur-xl border border-blueprint-500/20;
+    @apply bg-dark-900/60 backdrop-blur-xl border border-cu-gold/20;
   }
 
   .card-hover {
-    @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-blueprint-500/10;
+    @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-cu-gold/10;
   }
 
   .btn-primary {
-    @apply px-6 py-3 bg-gradient-to-r from-primary-500 to-orange-500 text-white font-semibold rounded-lg
-           transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/25 hover:scale-105
-           active:scale-95;
+    @apply px-6 py-3 bg-cu-gold text-black font-semibold rounded-lg
+           transition-all duration-300 hover:shadow-lg hover:shadow-cu-gold/25 hover:scale-105
+           active:scale-95 hover:bg-cu-gold-light;
   }
 
   .btn-secondary {
-    @apply px-6 py-3 border border-primary-500/50 text-primary-400 font-semibold rounded-lg
-           transition-all duration-300 hover:bg-primary-500/10 hover:border-primary-400
+    @apply px-6 py-3 border border-cu-gold/50 text-cu-gold font-semibold rounded-lg
+           transition-all duration-300 hover:bg-cu-gold/10 hover:border-cu-gold
            active:scale-95;
   }
 
   .btn-blueprint {
-    @apply px-6 py-3 border border-blueprint-500/50 text-blueprint-400 font-semibold rounded-lg
-           transition-all duration-300 hover:bg-blueprint-500/10 hover:border-blueprint-400
+    @apply px-6 py-3 border border-cu-gold/50 text-cu-gold font-semibold rounded-lg
+           transition-all duration-300 hover:bg-cu-gold/10 hover:border-cu-gold
            active:scale-95;
   }
 
@@ -83,20 +83,20 @@
   }
 
   .tech-badge {
-    @apply px-3 py-1 text-sm font-mono bg-dark-800/80 text-primary-400 rounded-full
-           border border-dark-700/50 hover:border-primary-500/50 transition-colors;
+    @apply px-3 py-1 text-sm font-mono bg-dark-800/80 text-cu-gold rounded-full
+           border border-dark-700/50 hover:border-cu-gold/50 transition-colors;
   }
 
   .blueprint-badge {
-    @apply px-3 py-1 text-xs font-mono bg-blueprint-950/60 text-blueprint-400 rounded-full
-           border border-blueprint-700/40 hover:border-blueprint-500/60 transition-colors;
+    @apply px-3 py-1 text-xs font-mono bg-cu-gold/10 text-cu-gold rounded-full
+           border border-cu-gold/30 hover:border-cu-gold/60 transition-colors;
   }
 
   /* Engineering drawing corner brackets */
-  .corner-tl { @apply absolute top-3 left-3  w-6 h-6 border-l border-t border-blueprint-500/40; }
-  .corner-tr { @apply absolute top-3 right-3 w-6 h-6 border-r border-t border-blueprint-500/40; }
-  .corner-bl { @apply absolute bottom-3 left-3  w-6 h-6 border-l border-b border-blueprint-500/40; }
-  .corner-br { @apply absolute bottom-3 right-3 w-6 h-6 border-r border-b border-blueprint-500/40; }
+  .corner-tl { @apply absolute top-3 left-3  w-6 h-6 border-l border-t border-cu-gold/40; }
+  .corner-tr { @apply absolute top-3 right-3 w-6 h-6 border-r border-t border-cu-gold/40; }
+  .corner-bl { @apply absolute bottom-3 left-3  w-6 h-6 border-l border-b border-cu-gold/40; }
+  .corner-br { @apply absolute bottom-3 right-3 w-6 h-6 border-r border-b border-cu-gold/40; }
 
   .spec-label {
     @apply font-mono text-[10px] text-dark-500 tracking-wider uppercase w-28 shrink-0;
