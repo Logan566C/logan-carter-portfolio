@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import Marquee from './components/Marquee'
 import About from './components/About'
 import Education from './components/Education'
 import Projects from './components/Projects'
@@ -14,12 +15,10 @@ import LoadingScreen from './components/LoadingScreen'
 import CustomCursor from './components/CustomCursor'
 
 function App() {
-  const [isLoaded,       setIsLoaded]       = useState(false)
-  const [loadingDone,    setLoadingDone]    = useState(false)
+  const [isLoaded,    setIsLoaded]    = useState(false)
+  const [loadingDone, setLoadingDone] = useState(false)
 
-  useEffect(() => {
-    setIsLoaded(true)
-  }, [])
+  useEffect(() => { setIsLoaded(true) }, [])
 
   const path   = window.location.pathname
   const isHome = path === '/' || path === '/index.html'
@@ -45,6 +44,7 @@ function App() {
         <Navbar />
         <main>
           <Hero />
+          <Marquee />
           <About />
           <Education />
           <Projects />
