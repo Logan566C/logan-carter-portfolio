@@ -1,6 +1,6 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef, useState, useEffect } from 'react'
-import { Linkedin, Cog, TreePine, Globe, Play } from 'lucide-react'
+import { Linkedin, Cog, TreePine, Globe, Play, ExternalLink } from 'lucide-react'
 
 // Lazy-loaded YouTube embed
 const YouTubeEmbed = ({ videoId }) => {
@@ -18,11 +18,11 @@ const YouTubeEmbed = ({ videoId }) => {
   }, [hasLoaded])
 
   return (
-    <div ref={ref} className="relative w-full aspect-[9/16] max-w-[260px] mx-auto rounded-xl overflow-hidden bg-dark-800 border border-blueprint-500/15">
+    <div ref={ref} className="relative w-full aspect-[9/16] max-w-[260px] mx-auto rounded-xl overflow-hidden bg-dark-800 border border-cu-gold/15">
       {!isVisible ? (
         <div className="absolute inset-0 flex flex-col items-center justify-center bg-dark-900">
-          <div className="w-14 h-14 rounded-full bg-blueprint-500/15 flex items-center justify-center mb-3">
-            <Play size={24} className="text-blueprint-400 ml-1" />
+          <div className="w-14 h-14 rounded-full bg-cu-gold/15 flex items-center justify-center mb-3">
+            <Play size={24} className="text-cu-gold ml-1" />
           </div>
           <p className="font-mono text-[10px] text-dark-500 tracking-wider">SCROLL TO LOAD</p>
         </div>
@@ -85,17 +85,18 @@ const Projects = () => {
       videoId:      null,
     },
     {
-      title:        'Website Creation for Small Businesses',
-      description:  'Building modern websites for small companies that lack an online presence or have outdated sites, helping businesses establish their digital footprint.',
+      title:        '603 Websites — Portfolio Studio',
+      description:  'Co-founded a web development studio with Louis Sader, building custom portfolio sites for professionals using React, Vite, and Tailwind CSS. This portfolio was built entirely in-house.',
       icon:         Globe,
-      highlights:   ['Client requirement gathering', 'Modern responsive design', 'Full-stack development', 'Business impact delivery'],
-      technologies: ['Web Development', 'Design', 'Client Relations', 'Problem Solving'],
+      highlights:   ['Custom React + Tailwind builds', 'Client requirement gathering', 'Framer Motion animations', 'Vercel deployment'],
+      technologies: ['React', 'Vite', 'Tailwind CSS', 'Framer Motion'],
       featured:     false,
-      accent:       '#8b5cf6',
+      accent:       '#CFB87C',
       dwgNo:        'LC-003',
       rev:          'A',
       date:         '2024',
       videoId:      null,
+      link:         'https://portfolio-showcase-ebon.vercel.app/',
     },
   ]
 
@@ -112,9 +113,9 @@ const Projects = () => {
           className="text-center mb-16"
         >
           <div className="flex items-center justify-center gap-3 mb-3">
-            <div className="h-[1px] w-12 bg-blueprint-500/40" />
-            <span className="font-mono text-[10px] text-blueprint-400/60 tracking-[0.35em] uppercase">Project Archive</span>
-            <div className="h-[1px] w-12 bg-blueprint-500/40" />
+            <div className="h-[1px] w-12 bg-cu-gold/40" />
+            <span className="font-mono text-[10px] text-cu-gold/60 tracking-[0.35em] uppercase">Project Archive</span>
+            <div className="h-[1px] w-12 bg-cu-gold/40" />
           </div>
           <h2 className="section-heading">
             Featured <span className="gradient-text">Projects</span>
@@ -134,7 +135,7 @@ const Projects = () => {
           transition={{ duration: 0.55, delay: 0.15 }}
           className="relative mb-8 group"
         >
-          <div className="relative glass rounded-2xl overflow-hidden card-hover border-blueprint-500/15">
+          <div className="relative glass rounded-2xl overflow-hidden card-hover border-cu-gold/15">
             {/* Accent bar */}
             <div className="h-[2px] w-full" style={{ background: `linear-gradient(90deg, ${projects[0].accent}, transparent)` }} />
 
@@ -146,7 +147,7 @@ const Projects = () => {
                 </div>
                 <div>
                   <span className="font-mono text-[9px] text-dark-600 tracking-widest block">PROJECT — {projects[0].dwgNo}</span>
-                  <h3 className="text-base font-semibold text-white group-hover:text-blueprint-300 transition-colors">
+                  <h3 className="text-base font-semibold text-white group-hover:text-cu-gold-light transition-colors">
                     {projects[0].title}
                   </h3>
                 </div>
@@ -216,7 +217,7 @@ const Projects = () => {
                 </div>
 
                 <div className="p-5 flex-1 flex flex-col">
-                  <h3 className="text-base font-semibold text-white mb-2 group-hover:text-blueprint-300 transition-colors">
+                  <h3 className="text-base font-semibold text-white mb-2 group-hover:text-cu-gold-light transition-colors">
                     {project.title}
                   </h3>
                   <p className="text-dark-400 text-sm mb-4 leading-relaxed flex-1">{project.description}</p>
@@ -235,6 +236,18 @@ const Projects = () => {
                       <span key={tech} className="blueprint-badge">{tech}</span>
                     ))}
                   </div>
+
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 mt-4 px-4 py-2 bg-cu-gold text-black text-xs font-bold tracking-[0.12em] uppercase hover:bg-cu-gold-light transition-colors duration-200"
+                    >
+                      <ExternalLink size={12} />
+                      VIEW PORTFOLIO SHOWCASE
+                    </a>
+                  )}
                 </div>
               </div>
             </motion.div>
