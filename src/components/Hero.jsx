@@ -50,7 +50,7 @@ const Hero = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.9, delay: 0.3 }}
               >
-                <h1 className="text-[7rem] sm:text-[10rem] lg:text-[13rem] font-black leading-none tracking-tighter text-white uppercase">
+                <h1 className="text-[4.5rem] sm:text-[7rem] lg:text-[9rem] font-black leading-none tracking-tighter text-white uppercase">
                   LOGAN
                 </h1>
               </motion.div>
@@ -76,7 +76,7 @@ const Hero = () => {
                 transition={{ duration: 0.9, delay: 0.4 }}
                 className="overflow-hidden -mt-4 mb-6"
               >
-                <h1 className="text-[7rem] sm:text-[10rem] lg:text-[13rem] font-black leading-none tracking-tighter text-cu-gold uppercase">
+                <h1 className="text-[4.5rem] sm:text-[7rem] lg:text-[9rem] font-black leading-none tracking-tighter text-cu-gold uppercase">
                   CARTER
                 </h1>
               </motion.div>
