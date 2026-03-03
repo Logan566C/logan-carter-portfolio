@@ -1,6 +1,6 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef, useState, useEffect } from 'react'
-import { Linkedin, Cog, TreePine, Globe, Play, ExternalLink } from 'lucide-react'
+import { Linkedin, Cog, TreePine, Globe, Play, ExternalLink, Zap, DollarSign, Building2, Code2 } from 'lucide-react'
 
 // Lazy-loaded YouTube embed
 const YouTubeEmbed = ({ videoId }) => {
@@ -53,52 +53,66 @@ const TitleBlock = ({ dwgNo, rev, date }) => (
   </div>
 )
 
+const projects = [
+  {
+    title:        'GEEN 1400 — Engineering Design Project',
+    description:  'Multi-phase engineering design project at CU Boulder encompassing concept development, CAD modeling, fabrication, and testing of working prototypes with iterative design improvements.',
+    icon:         Cog,
+    highlights:   ['Full design lifecycle execution', 'CAD modeling & prototyping', 'Testing & validation process', 'Design Expo final presentation'],
+    technologies: ['SolidWorks', 'Prototyping', '3D Printing', 'Team Collaboration', 'Testing'],
+    featured:     true,
+    accent:       '#0ea5e9',
+    dwgNo:        'LC-001',
+    rev:          'B',
+    date:         '2025',
+    videoId:      'sggqbIs09tU',
+  },
+  {
+    title:        'Trail Design & Construction',
+    description:  'Led a team of track athletes to plan, design, and construct a major trail renovation project through wooded terrain using structural engineering principles.',
+    icon:         TreePine,
+    highlights:   ['Project planning & leadership', 'Technical structural designs', 'Gravel path engineering', 'Team coordination & execution'],
+    technologies: ['Project Management', 'Structural Design', 'Leadership', 'Construction'],
+    featured:     false,
+    accent:       '#f59e0b',
+    dwgNo:        'LC-002',
+    rev:          'A',
+    date:         '2024',
+    videoId:      null,
+  },
+]
+
+// 603 Websites feature cards
+const studioFeatures = [
+  {
+    icon: Code2,
+    title: 'Built From Scratch',
+    desc: 'No templates. Every site — including this one — is hand-coded in React, Vite, and Tailwind CSS with custom animations.',
+    color: '#CFB87C',
+  },
+  {
+    icon: DollarSign,
+    title: 'Affordable Pricing',
+    desc: 'We undercut agency rates dramatically. Professionals and small businesses get a premium product without the premium price tag.',
+    color: '#A2A4A3',
+  },
+  {
+    icon: Zap,
+    title: 'Fast & Unique',
+    desc: 'Every design is one-of-a-kind. Framer Motion animations, mobile-first layouts, and Vercel-hosted for lightning fast load times.',
+    color: '#CFB87C',
+  },
+  {
+    icon: Building2,
+    title: 'Growing Into Companies',
+    desc: "Our goal is to expand beyond portfolios — landing pages, marketing sites, and full web presences for businesses that need one.",
+    color: '#A2A4A3',
+  },
+]
+
 const Projects = () => {
   const ref      = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
-
-  const projects = [
-    {
-      title:        'GEEN 1400 — Engineering Design Project',
-      description:  'Multi-phase engineering design project at CU Boulder encompassing concept development, CAD modeling, fabrication, and testing of working prototypes with iterative design improvements.',
-      icon:         Cog,
-      highlights:   ['Full design lifecycle execution', 'CAD modeling & prototyping', 'Testing & validation process', 'Design Expo final presentation'],
-      technologies: ['SolidWorks', 'Prototyping', '3D Printing', 'Team Collaboration', 'Testing'],
-      featured:     true,
-      accent:       '#0ea5e9',
-      dwgNo:        'LC-001',
-      rev:          'B',
-      date:         '2025',
-      videoId:      'sggqbIs09tU',
-    },
-    {
-      title:        'Trail Design & Construction',
-      description:  'Led a team of track athletes to plan, design, and construct a major trail renovation project through wooded terrain using structural engineering principles.',
-      icon:         TreePine,
-      highlights:   ['Project planning & leadership', 'Technical structural designs', 'Gravel path engineering', 'Team coordination & execution'],
-      technologies: ['Project Management', 'Structural Design', 'Leadership', 'Construction'],
-      featured:     true,
-      accent:       '#f59e0b',
-      dwgNo:        'LC-002',
-      rev:          'A',
-      date:         '2024',
-      videoId:      null,
-    },
-    {
-      title:        '603 Websites — Portfolio Studio',
-      description:  'Co-founded a web development studio with Louis Sader, building custom portfolio sites for professionals using React, Vite, and Tailwind CSS. This portfolio was built entirely in-house.',
-      icon:         Globe,
-      highlights:   ['Custom React + Tailwind builds', 'Client requirement gathering', 'Framer Motion animations', 'Vercel deployment'],
-      technologies: ['React', 'Vite', 'Tailwind CSS', 'Framer Motion'],
-      featured:     false,
-      accent:       '#CFB87C',
-      dwgNo:        'LC-003',
-      rev:          'A',
-      date:         '2024',
-      videoId:      null,
-      link:         'https://portfolio-showcase-ebon.vercel.app/',
-    },
-  ]
 
   return (
     <section id="projects" className="py-24 relative bg-dark-900/20">
@@ -125,134 +139,216 @@ const Projects = () => {
           </p>
         </motion.div>
 
-        {/* ── GEEN 1400 — Featured with video ── */}
+        {/* ── LC-001: GEEN 1400 — Featured with video ── */}
         {(() => {
           const FeaturedIcon = projects[0].icon
           return (
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.55, delay: 0.15 }}
+              className="relative mb-8 group"
+            >
+              <div className="relative glass rounded-2xl overflow-hidden card-hover">
+                <div className="h-[2px] w-full" style={{ background: `linear-gradient(90deg, ${projects[0].accent}, transparent)` }} />
+                <div className="flex items-center justify-between px-6 py-4 border-b border-dark-700/40">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ backgroundColor: `${projects[0].accent}20`, border: `1px solid ${projects[0].accent}40` }}>
+                      <FeaturedIcon size={22} style={{ color: projects[0].accent }} />
+                    </div>
+                    <div>
+                      <span className="font-mono text-[9px] text-dark-600 tracking-widest block">PROJECT — {projects[0].dwgNo}</span>
+                      <h3 className="text-base font-semibold text-white group-hover:text-cu-gold-light transition-colors">
+                        {projects[0].title}
+                      </h3>
+                    </div>
+                  </div>
+                  <TitleBlock dwgNo={projects[0].dwgNo} rev={projects[0].rev} date={projects[0].date} />
+                </div>
+                <div className="p-6">
+                  <div className="grid lg:grid-cols-2 gap-8 items-start">
+                    <div>
+                      <p className="text-dark-400 text-sm mb-5 leading-relaxed">{projects[0].description}</p>
+                      <div className="grid sm:grid-cols-2 gap-2 mb-5">
+                        {projects[0].highlights.map(h => (
+                          <div key={h} className="flex items-center gap-2 text-xs text-dark-300">
+                            <span className="w-1 h-1 rounded-full shrink-0" style={{ backgroundColor: projects[0].accent }} />
+                            {h}
+                          </div>
+                        ))}
+                      </div>
+                      <div className="flex flex-wrap gap-2 pt-4 border-t border-dark-700/40">
+                        {projects[0].technologies.map(tech => (
+                          <span key={tech} className="blueprint-badge">{tech}</span>
+                        ))}
+                      </div>
+                    </div>
+                    <YouTubeEmbed videoId={projects[0].videoId} />
+                  </div>
+                </div>
+              </div>
+              <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="border-2 border-green-500/40 rounded px-2 py-0.5 rotate-[-12deg]">
+                  <span className="font-mono text-[9px] text-green-500/60 tracking-widest font-bold">APPROVED</span>
+                </div>
+              </div>
+            </motion.div>
+          )
+        })()}
+
+        {/* ── LC-003: 603 Websites — Full featured card ── */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.55, delay: 0.15 }}
+          transition={{ duration: 0.55, delay: 0.3 }}
           className="relative mb-8 group"
         >
-          <div className="relative glass rounded-2xl overflow-hidden card-hover border-cu-gold/15">
-            {/* Accent bar */}
-            <div className="h-[2px] w-full" style={{ background: `linear-gradient(90deg, ${projects[0].accent}, transparent)` }} />
+          <div className="relative glass rounded-2xl overflow-hidden card-hover">
+            {/* Gold accent bar */}
+            <div className="h-[2px] w-full bg-gradient-to-r from-cu-gold via-cu-gold-light to-transparent" />
 
-            {/* Header bar */}
+            {/* Header */}
             <div className="flex items-center justify-between px-6 py-4 border-b border-dark-700/40">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ backgroundColor: `${projects[0].accent}20`, border: `1px solid ${projects[0].accent}40` }}>
-                  <FeaturedIcon size={22} style={{ color: projects[0].accent }} />
+                <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-cu-gold/20 border border-cu-gold/40">
+                  <Globe size={22} className="text-cu-gold" />
                 </div>
                 <div>
-                  <span className="font-mono text-[9px] text-dark-600 tracking-widest block">PROJECT — {projects[0].dwgNo}</span>
-                  <h3 className="text-base font-semibold text-white group-hover:text-cu-gold-light transition-colors">
-                    {projects[0].title}
+                  <span className="font-mono text-[9px] text-dark-600 tracking-widest block">PROJECT — LC-003</span>
+                  <h3 className="text-base font-semibold text-white group-hover:text-cu-gold transition-colors">
+                    603 Websites — Portfolio & Web Studio
                   </h3>
                 </div>
               </div>
-              <TitleBlock dwgNo={projects[0].dwgNo} rev={projects[0].rev} date={projects[0].date} />
+              <TitleBlock dwgNo="LC-003" rev="A" date="2024" />
             </div>
 
             <div className="p-6">
-              <div className="grid lg:grid-cols-2 gap-8 items-start">
-                <div>
-                  <p className="text-dark-400 text-sm mb-5 leading-relaxed">{projects[0].description}</p>
+              <div className="grid lg:grid-cols-2 gap-10 items-start">
 
-                  <div className="grid sm:grid-cols-2 gap-2 mb-5">
-                    {projects[0].highlights.map(h => (
-                      <div key={h} className="flex items-center gap-2 text-xs text-dark-300">
-                        <span className="w-1 h-1 rounded-full shrink-0" style={{ backgroundColor: projects[0].accent }} />
-                        {h}
+                {/* Left: full story */}
+                <div>
+                  <p className="text-dark-300 text-sm leading-relaxed mb-4">
+                    I co-founded{' '}
+                    <span className="text-cu-gold font-semibold">603 Websites</span>{' '}
+                    with Louis Sader — a web studio named after the NH area code where it all started.
+                    Our mission is simple: build <span className="text-white font-medium">beautiful, unique, affordable websites</span> for
+                    professionals and businesses who deserve more than a cookie-cutter template.
+                  </p>
+                  <p className="text-dark-300 text-sm leading-relaxed mb-6">
+                    The portfolio you're looking at right now was <span className="text-white font-medium">designed and built entirely by me</span> —
+                    hand-coded from a blank file in React, Vite, and Tailwind CSS.
+                    Every animation, color choice, and layout decision is custom. No themes. No drag-and-drop.
+                    This is what we deliver to every client.
+                  </p>
+
+                  {/* Stats row */}
+                  <div className="grid grid-cols-3 gap-4 mb-6 pb-6 border-b border-dark-700/40">
+                    {[
+                      { value: '3+', label: 'Sites Built' },
+                      { value: '2',  label: 'Founders'    },
+                      { value: '$0', label: 'Templates Used' },
+                    ].map((s, i) => (
+                      <div key={i} className="text-center">
+                        <div className="text-2xl font-black font-mono gradient-text leading-none mb-1">{s.value}</div>
+                        <div className="font-mono text-[9px] text-dark-600 tracking-[0.15em] uppercase">{s.label}</div>
                       </div>
                     ))}
                   </div>
 
-                  <div className="flex flex-wrap gap-2 pt-4 border-t border-dark-700/40">
-                    {projects[0].technologies.map(tech => (
+                  {/* Tech stack */}
+                  <div className="flex flex-wrap gap-1.5 mb-6">
+                    {['React', 'Vite', 'Tailwind CSS', 'Framer Motion', 'Vercel', 'GitHub'].map(tech => (
                       <span key={tech} className="blueprint-badge">{tech}</span>
                     ))}
                   </div>
+
+                  {/* CTA */}
+                  <a
+                    href="https://portfolio-showcase-ebon.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-cu-gold text-black text-sm font-bold tracking-[0.12em] uppercase hover:bg-cu-gold-light transition-colors duration-200 group/btn"
+                  >
+                    <Globe size={15} />
+                    VIEW PORTFOLIO SHOWCASE
+                    <ExternalLink size={12} className="opacity-60 group-hover/btn:opacity-100 transition-opacity" />
+                  </a>
                 </div>
 
-                <YouTubeEmbed videoId={projects[0].videoId} />
+                {/* Right: feature cards */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {studioFeatures.map((f, i) => (
+                    <motion.div
+                      key={f.title}
+                      initial={{ opacity: 0, y: 14 }}
+                      animate={isInView ? { opacity: 1, y: 0 } : {}}
+                      transition={{ duration: 0.4, delay: 0.45 + i * 0.08 }}
+                      className="relative rounded-xl p-4 bg-dark-800/60 border border-dark-700/50 overflow-hidden"
+                    >
+                      <div className="absolute top-0 left-0 right-0 h-[1px]"
+                        style={{ background: `linear-gradient(90deg, ${f.color}60, transparent)` }} />
+                      <div className="w-8 h-8 rounded-lg flex items-center justify-center mb-3"
+                        style={{ backgroundColor: `${f.color}15`, border: `1px solid ${f.color}30` }}>
+                        <f.icon size={15} style={{ color: f.color }} />
+                      </div>
+                      <h4 className="text-white text-xs font-semibold mb-1">{f.title}</h4>
+                      <p className="text-dark-500 text-xs leading-relaxed">{f.desc}</p>
+                    </motion.div>
+                  ))}
+                </div>
+
               </div>
             </div>
           </div>
 
           {/* APPROVED stamp */}
           <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-            <div className="border-2 border-green-500/40 rounded px-2 py-0.5 rotate-[-12deg]">
-              <span className="font-mono text-[9px] text-green-500/60 tracking-widest font-bold">APPROVED</span>
+            <div className="border-2 border-cu-gold/40 rounded px-2 py-0.5 rotate-[-12deg]">
+              <span className="font-mono text-[9px] text-cu-gold/60 tracking-widest font-bold">LIVE</span>
             </div>
           </div>
         </motion.div>
-          )
-        })()}
 
-        {/* ── Remaining projects ── */}
-        <div className="grid lg:grid-cols-2 gap-6">
-          {projects.slice(1).map((project, index) => (
-            <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.3 + index * 0.15 }}
-              className="relative group"
-            >
-              <div className="glass rounded-2xl overflow-hidden card-hover h-full flex flex-col">
-                {/* Accent bar */}
-                <div className="h-[2px]" style={{ background: `linear-gradient(90deg, ${project.accent}, transparent)` }} />
-
-                {/* Header */}
-                <div className="flex items-center justify-between px-5 py-4 border-b border-dark-700/40">
-                  <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ backgroundColor: `${project.accent}20`, border: `1px solid ${project.accent}40` }}>
-                      <project.icon size={18} style={{ color: project.accent }} />
-                    </div>
-                    <span className="font-mono text-[9px] text-dark-600 tracking-widest">{project.dwgNo}</span>
-                  </div>
-                  <TitleBlock dwgNo={project.dwgNo} rev={project.rev} date={project.date} />
+        {/* ── LC-002: Trail Design — smaller card ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.45 }}
+          className="relative group"
+        >
+          <div className="glass rounded-2xl overflow-hidden card-hover flex flex-col">
+            <div className="h-[2px]" style={{ background: `linear-gradient(90deg, ${projects[1].accent}, transparent)` }} />
+            <div className="flex items-center justify-between px-5 py-4 border-b border-dark-700/40">
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ backgroundColor: `${projects[1].accent}20`, border: `1px solid ${projects[1].accent}40` }}>
+                  <projects[1].icon size={18} style={{ color: projects[1].accent }} />
                 </div>
-
-                <div className="p-5 flex-1 flex flex-col">
-                  <h3 className="text-base font-semibold text-white mb-2 group-hover:text-cu-gold-light transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-dark-400 text-sm mb-4 leading-relaxed flex-1">{project.description}</p>
-
-                  <div className="grid sm:grid-cols-2 gap-1.5 mb-4">
-                    {project.highlights.map(h => (
-                      <div key={h} className="flex items-center gap-2 text-xs text-dark-300">
-                        <span className="w-1 h-1 rounded-full shrink-0" style={{ backgroundColor: project.accent }} />
-                        {h}
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="flex flex-wrap gap-1.5 pt-4 border-t border-dark-700/40">
-                    {project.technologies.map(tech => (
-                      <span key={tech} className="blueprint-badge">{tech}</span>
-                    ))}
-                  </div>
-
-                  {project.link && (
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 mt-4 px-4 py-2 bg-cu-gold text-black text-xs font-bold tracking-[0.12em] uppercase hover:bg-cu-gold-light transition-colors duration-200"
-                    >
-                      <ExternalLink size={12} />
-                      VIEW PORTFOLIO SHOWCASE
-                    </a>
-                  )}
-                </div>
+                <span className="font-mono text-[9px] text-dark-600 tracking-widest">{projects[1].dwgNo}</span>
               </div>
-            </motion.div>
-          ))}
-        </div>
+              <TitleBlock dwgNo={projects[1].dwgNo} rev={projects[1].rev} date={projects[1].date} />
+            </div>
+            <div className="p-5">
+              <h3 className="text-base font-semibold text-white mb-2 group-hover:text-cu-gold-light transition-colors">
+                {projects[1].title}
+              </h3>
+              <p className="text-dark-400 text-sm mb-4 leading-relaxed">{projects[1].description}</p>
+              <div className="grid sm:grid-cols-2 gap-1.5 mb-4">
+                {projects[1].highlights.map(h => (
+                  <div key={h} className="flex items-center gap-2 text-xs text-dark-300">
+                    <span className="w-1 h-1 rounded-full shrink-0" style={{ backgroundColor: projects[1].accent }} />
+                    {h}
+                  </div>
+                ))}
+              </div>
+              <div className="flex flex-wrap gap-1.5 pt-4 border-t border-dark-700/40">
+                {projects[1].technologies.map(tech => (
+                  <span key={tech} className="blueprint-badge">{tech}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </motion.div>
 
         {/* LinkedIn CTA */}
         <motion.div
